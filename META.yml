@@ -1,0 +1,24 @@
+---
+name: XML-Parser-Tiny
+version: '0.01'
+author: 
+    - 'Alexandr Alexeev <afiskon@gmail.com>'
+abstract: 'A Perl 6 module for parsing XML documents'
+license: artistic_2
+resources:
+    license: http://www.perlfoundation.org/artistic_2_0_notes
+distribution_type: module
+requires:
+    perl: 6.0
+provides:
+    XML::Parser::Tiny:
+        file: lib/XML/Parser/Tiny.pm6
+        version: '0.01'
+    XML::Parser::Tiny::Grammar:
+        file: lib/XML/Parser/Tiny/Grammar.pm6
+    XML::Parser::Tiny::Actions:
+        file: lib/XML/Parser/Tiny/Actions.pm6
+generated_by: 'Alexandr Alexeev'
+meta-spec:
+    url: http://module-build.sourceforge.net/META-spec-v1.2.html
+    version: 1.2

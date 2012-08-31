@@ -1,0 +1,19 @@
+A Perl 6 module for parsing XML documents.
+
+All files (unless noted otherwise) can be used, modified and redistributed
+under the terms of the Artistic License Version 2.
+
+To build and test this module, plese get 'ufo' from
+http://github.com/masak/ufo and run
+
+    ufo
+    make
+    make test
+
+State:
+
+    The parser is pretty complete, if you find anything that it should
+    parse and doesn't, or the other way round, please let me know.
+
+Credits
+    Alexandr Alexeev <afiskon@gmail.com>

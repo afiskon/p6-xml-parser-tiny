@@ -1,0 +1,7 @@
+{
+    "name"        : "XML::Parse::Tiny",
+    "version"     : "*",
+    "description" : "A Perl 6 module for parsing XML documents",
+    "depends"     : [ ],
+    "source-url"  : "git@github.com:afiskon/p6-xml-parser-tiny.git"
+}

@@ -1,0 +1,8 @@
+lib/XML/Parser/Tiny.pm6
+lib/XML/Parser/Tiny/Actions.pm6
+lib/XML/Parser/Tiny/Grammar.pm6
+t/01-grammar.t
+t/02-actions.t
+t/03-parser.t
+META.yml
+README

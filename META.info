@@ -3,5 +3,6 @@
     "version"     : "*",
     "description" : "A Perl 6 module for parsing XML documents",
     "depends"     : [ ],
+    "source-type" : "git",
     "source-url"  : "git://github.com/afiskon/p6-xml-parser-tiny.git"
 }

@@ -9,7 +9,7 @@ http://github.com/masak/ufo and run
     ufo
     make
     make test
-    meke install
+    make install
 
 State:
 

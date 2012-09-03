@@ -1,5 +1,5 @@
 {
-    "name"        : "XML::Parse::Tiny",
+    "name"        : "XML::Parser::Tiny",
     "version"     : "*",
     "description" : "A Perl 6 module for parsing XML documents",
     "depends"     : [ ],

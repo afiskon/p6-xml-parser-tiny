@@ -1,6 +1,5 @@
 * translate this TODO into English
 * what about <!DOCTYPE ?
-* https://github.com/afiskon/p6-xml-parser-tiny/issues/2
 * Что-то не так, если пробелы в начале XML (без <?xml в начале)
 * внутри комментариев не может быть --
 * в именах тэгов и атрибутов могут использоваться не только Ascii символы

@@ -19,48 +19,47 @@ method parse (Str $xml) {
 
 =begin pod
 
-=head NAME
+=head1 NAME
 
 XML::Parser::Tiny is a module for parsing XML documents.
 
-=head SYNOPSYS
+=head1 SYNOPSYS
 
-     use XML::Parser::Tiny;
-     my $parser = XML::Parser::Tiny.new;
-     my $xml = q{<?xml version="1.0" charset="UTF-8" ?>
-       <doc>aaa<bbb key='&lt;&#123;&gt;' ><![CDATA[<ccc>]]></bbb>ddd</doc>
-     };
-     if my $tree = $parser.parse($xml) {
-         say $tree.perl;
+    use XML::Parser::Tiny;
+    my $parser = XML::Parser::Tiny.new;
+    my $xml = q{<?xml version="1.0" charset="UTF-8" ?>
+        <doc>aaa<bbb key='&lt;&#123;&gt;' ><![CDATA[<ccc>]]></bbb>ddd</doc>
+    };
+    if my $tree = $parser.parse($xml) {
+        say $tree.perl;
 
-         # {
-         #     "head" => [
-         #         {
-         #             "name" => "xml",
-         #             "attr" => {
-         #                 "version" => "1.0",
-         #                 "charset" => "UTF-8"
-         #             }
-         #         }
-         #     ],
-         #     "body" => {
-         #         "name" => "doc",
-         #         "attr" => {},
-         #         "data" => [
-         #             "aaa",
-         #             {
-         #                 "name" => "bbb",
-         #                 "attr" => {
-         #                   "key" => "<\{>"
-         #                 },
-         #                 "data" => [ "<ccc>" ]
-         #             },
-         #             "ddd"
-         #         ]
-         #     }
-         # }
-
-     }
+        # {
+        #     "head" => [
+        #         {
+        #             "name" => "xml",
+        #             "attr" => {
+        #                 "version" => "1.0",
+        #                 "charset" => "UTF-8"
+        #             }
+        #         }
+        #     ],
+        #     "body" => {
+        #         "name" => "doc",
+        #         "attr" => {},
+        #         "data" => [
+        #             "aaa",
+        #             {
+        #                 "name" => "bbb",
+        #                 "attr" => {
+        #                   "key" => "<\{>"
+        #                 },
+        #                 "data" => [ "<ccc>" ]
+        #             },
+        #             "ddd"
+        #         ]
+        #     }
+        # }
+    }
  
 =end pod
 

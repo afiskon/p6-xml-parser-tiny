@@ -1,20 +1,58 @@
-A Perl 6 module for parsing XML documents.
+NAME
 
-All files (unless noted otherwise) can be used, modified and redistributed
-under the terms of the Artistic License Version 2.
+XML::Parser::Tiny is a module for parsing XML documents.
 
-To build and test this module, plese get 'ufo' from
-http://github.com/masak/ufo and run
+SYNOPSYS
 
-    ufo
-    make
-    make test
-    make install
+    use XML::Parser::Tiny;
 
-State:
+    my $xml = q{<?xml version="1.0" charset="UTF-8" ?>
+        <doc>aaa<bbb key='&lt;&#123;&gt;' ><![CDATA[<ccc>]]></bbb>ddd</doc>
+    };
 
-    The parser is pretty complete, if you find anything that it should
-    parse and doesn't, or the other way round, please let me know.
+    my $parser = XML::Parser::Tiny.new;
+    if my $tree = $parser.parse($xml) {
+        say $tree.perl;
 
-Credits
-    Alexandr Alexeev <afiskon@gmail.com>
+    # {
+    #     "head" => [
+    #         {
+    #             "name" => "xml",
+    #             "attr" => {
+    #                 "version" => "1.0",
+    #                 "charset" => "UTF-8"
+    #             }
+    #         }
+    #     ],
+    #     "body" => {
+    #         "name" => "doc",
+    #         "attr" => {},
+    #         "data" => [
+    #             "aaa",
+    #             {
+    #                 "name" => "bbb",
+    #                 "attr" => {
+    #                   "key" => "<\{>"
+    #                 },
+    #                 "data" => [ "<ccc>" ]
+    #             },
+    #             "ddd"
+    #         ]
+    #     }
+    # }
+
+    }
+
+DESCRIPTION
+
+A module for parsing XML documents.
+
+AUTHOR
+
+Alexandr Alexeev, <eax at cpan.org> (http://eax.me/)
+
+COPYRIGHT
+
+Copyright 2012 Alexandr Alexeev
+
+This program is free software; you can redistribute it and/or modify it under the same terms as Rakudo Perl 6 itself.

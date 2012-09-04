@@ -26,10 +26,12 @@ XML::Parser::Tiny is a module for parsing XML documents.
 =head1 SYNOPSYS
 
     use XML::Parser::Tiny;
-    my $parser = XML::Parser::Tiny.new;
+
     my $xml = q{<?xml version="1.0" charset="UTF-8" ?>
         <doc>aaa<bbb key='&lt;&#123;&gt;' ><![CDATA[<ccc>]]></bbb>ddd</doc>
     };
+
+    my $parser = XML::Parser::Tiny.new;
     if my $tree = $parser.parse($xml) {
         say $tree.perl;
 
@@ -60,7 +62,22 @@ XML::Parser::Tiny is a module for parsing XML documents.
         #     }
         # }
     }
- 
+
+=head1 DESCRIPTION
+
+A module for parsing XML documents.
+
+=head1 AUTHOR
+
+Alexandr Alexeev, <eax at cpan.org> (L<http://eax.me/>)
+
+=head1 COPYRIGHT
+
+Copyright 2012 Alexandr Alexeev
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Rakudo Perl 6 itself.
+
 =end pod
 
 

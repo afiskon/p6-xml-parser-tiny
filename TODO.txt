@@ -1,7 +1,5 @@
 * translate this TODO into English
 * what about <!DOCTYPE ?
-* Вычистить лишние файлы (MANIFEST, METE.yml)
-* Привести в порядок POD и README
 * https://github.com/afiskon/p6-xml-parser-tiny/issues/2
 * Что-то не так, если пробелы в начале XML (без <?xml в начале)
 * внутри комментариев не может быть --

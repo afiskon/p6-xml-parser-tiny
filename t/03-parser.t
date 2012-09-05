@@ -5,17 +5,10 @@ use lib 'lib';
 use Test;
 use XML::Parser::Tiny;
 
-my %tests = {
-  "trash" => Nil,
-  "<doc />" => { head => [], body => { name => 'doc', attr => {}, data => [] } },
-};
-
 my $parser = XML::Parser::Tiny.new;
 
-for %tests.kv -> $in, $out {
-  my $rslt = $parser.parse($in);
-  ok($rslt eqv $out); 
-}
+dies_ok( { $parser.parse('trash') } );
+ok( $parser.parse('<doc />') eqv {head=>[],body =>{name =>'doc',attr =>{},data=>[]}} );
 
 done;
 

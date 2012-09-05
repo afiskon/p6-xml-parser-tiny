@@ -33,36 +33,35 @@ my $xml = q{<?xml version="1.0" charset="UTF-8" ?>
 };
 
 my $parser = XML::Parser::Tiny.new;
-if my $tree = $parser.parse($xml) {
-    say $tree.perl;
+my $tree = $parser.parse($xml);
+say $tree.perl;
 
-    # {
-    #     "head" => [
-    #         {
-    #             "name" => "xml",
-    #             "attr" => {
-    #                 "version" => "1.0",
-    #                 "charset" => "UTF-8"
-    #             }
-    #         }
-    #     ],
-    #     "body" => {
-    #         "name" => "doc",
-    #         "attr" => {},
-    #         "data" => [
-    #             "aaa",
-    #             {
-    #                 "name" => "bbb",
-    #                 "attr" => {
-    #                   "key" => "<+>",
-    #                 },
-    #                 "data" => [ "<ccc>" ]
-    #             },
-    #             "ddd"
-    #         ]
-    #     }
-    # }
-}
+# {
+#     "head" => [
+#         {
+#             "name" => "xml",
+#             "attr" => {
+#                 "version" => "1.0",
+#                 "charset" => "UTF-8"
+#             }
+#         }
+#     ],
+#     "body" => {
+#         "name" => "doc",
+#         "attr" => {},
+#         "data" => [
+#             "aaa",
+#             {
+#                 "name" => "bbb",
+#                 "attr" => {
+#                   "key" => "<+>",
+#                 },
+#                 "data" => [ "<ccc>" ]
+#             },
+#             "ddd"
+#         ]
+#     }
+# }
 =end code
 
 =head1 DESCRIPTION

@@ -12,7 +12,10 @@ method TOP ($/) {
 }
 
 method head ($/) {
-  make [$<head_item>>>.ast]
+  make {
+    head_item => [$<head_item>>>.ast],
+    doctype => $<doctype>>>.ast.flat.hash
+  }
 }
 
 method head_item ($/) {
@@ -118,3 +121,28 @@ method apos ($/) { make "'" }
 method quot ($/) { make '"' }
 method num ($/) { make chr( $/.substr(2, $/.chars - 3) ) }
 
+method doctype ($/) {
+  make {
+    name => $<name>.ast,
+    dtd => $<external_dtd>>>.ast.flat.hash,
+    # inline => $<internal_dtd>.ast, ## broken ($<internal_dtd> returns Parcel?)
+  }
+}
+
+method external_dtd ($/) {
+  # my @paths = ;
+  make {
+    type => $<dtd_type>.ast, 
+    ($<value>[1].defined
+              ?? ( <public_id path> Z=> [$<value>>>.ast] )
+              !! ( path => $<value>[0].ast) )
+    #location => [$<value>>>.ast],
+  }
+}
+
+method dtd_type ($/) {
+    make ~$/;
+}
+method internal_dtd ($/) {
+    make ~$/;
+}

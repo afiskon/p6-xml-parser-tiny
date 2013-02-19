@@ -9,7 +9,7 @@ token TOP {
 }
 
 token head {
-    <head_item>*
+    <head_item>* <.sp> <doctype>?
 }
 
 token head_item {
@@ -104,3 +104,19 @@ token gt { '&gt;' }
 token apos { '&apos;' }
 token quot { '&quot;' }
 token num { '&#' <[0..9]>+ ';' }
+
+token doctype {
+  '<!DOCTYPE' <.sp> <name> <.sp> <external_dtd>?
+              <.sp> <internal_dtd>? <.sp> '>'
+}
+
+token external_dtd {
+    <dtd_type> [<.sp> <value>] ** 1..2
+}
+
+token dtd_type { SYSTEM | PUBLIC }
+
+token internal_dtd { 
+    '['  [ <-[\'\"\]]>+? | <value>]+  ']'
+}
+

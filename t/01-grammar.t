@@ -61,6 +61,16 @@ my @valid = (
   "<?xml ?><doc aaa=\"xxx&amp;&lt;&gt;&#123;yyy&quot;&apos;\" />",
   "<?xml ?><doc aaa='&amp;&lt;&gt;yyy&#456;&quot;&apos;zzz' />",
   "<?xml key=\"&lt;\" ?><doc key='&gt;' />",
+  "<!DOCTYPE html><html />",
+  "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"
+\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html><head /><body>foo</body></html>",
+  '<!DOCTYPE sgml [
+     <!ELEMENT sgml ANY>
+     <!ENTITY % std    "standard SGML">
+     <!ENTITY % play     "Hamlet">
+     <!ENTITY % author "William Shakespeare">
+  ]>
+  <sgml>To be or not to be? - William Shakespeare.</sgml>',
   "<?xml version=\"&amp;&gt;&quot;&apos;&lt;&#7654321;\" encoding='&amp;&lt;xxx&gt;&quot;yyy&apos;&#123456;'?><doc><do.c><![CDATA[ any data <html> ]]></do.c> <!-- <tag /> --> <!-- 123 --> <tag attr1='any value' attr2=\"other value\">\r\n\t <some:other:tag id='12' key=''/> <and_one_more> bebebe <!-- comment --> </and_one_more></tag></doc>",
   q{<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="http://eax.me/wp-content/plugins/google-sitemap-generator/sitemap.xsl"?><!-- generator="wordpress/3.4.1" -->
 <!-- sitemap-generator-url="http://www.arnebrachhold.de" sitemap-generator-version="3.2.8" -->

@@ -72,7 +72,7 @@ my $xmlmap_result = {
   }, # body
 };
 
-my %tests = {
+my %tests = (
   "<doc />" => { head => [], body => { name => 'doc', attr => {}, data => [] } },
   "<?xml ?><doc />" => { head => [ { name => 'xml', attr => {} } ], body => { name => 'doc', attr => {}, data => [] } },
   "<?xml aaa='bbb' ?><doc />" => { head => [ { name => 'xml', attr => { aaa => 'bbb'} } ], body => { name => 'doc', attr => {}, data => [] } },
@@ -111,7 +111,7 @@ my %tests = {
   "<html x='1'><!-- --><doc y='2'><!-- --></doc><!-- --></html>" => {head=>[],body=>{name=>'html',attr=>{x=>'1'},data=>[{name=>'doc',attr=>{y=>'2'},data=>[]}]}},
   "<html x='1'>aaa<doc y='2'>bbb</doc><![CDATA[ccc]]></html>" => {head=>[],body=>{name=>'html',attr=>{x=>'1'},data=>['aaa',{name=>'doc',attr=>{y=>'2'},data=>['bbb']},'ccc']}},
   $xmlmap => $xmlmap_result,
-}
+);
 
 my $grammar = XML::Parser::Tiny::Grammar;
 my $actions = XML::Parser::Tiny::Actions.new;

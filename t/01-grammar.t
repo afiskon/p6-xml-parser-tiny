@@ -44,7 +44,7 @@ my @valid = (
   "<?x?><tag>bebebe some data</tag>",
   "<?x?><x><tag1>bebebe</tag1><tag2>123123</tag2></x>",
   "<?x?><x><tag1>bebebe&lt;tag2&gt;&lt;/tag2&gt;123123</tag1></x>",
-  "<?x?><l1><l2>#(*/%!|]'^:_-</l2><l2><l3><!-- --></l3><l3>Проверка проверка</l3></l2></l1>",
+  "<?x?><l1><l2>#(*/\%!|]'^:_-</l2><l2><l3><!-- --></l3><l3>Проверка проверка</l3></l2></l1>",
   "<?x?><tag><![CDATA[]]></tag>",
   "<?x?><tag><![CDATA[test]]></tag>",
   "<?x?><tag><![CDATA[</tag>]]></tag>",

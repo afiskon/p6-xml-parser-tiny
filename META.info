@@ -2,6 +2,11 @@
     "name"        : "XML::Parser::Tiny",
     "version"     : "*",
     "description" : "A Perl 6 module for parsing XML documents",
+    "provides"    : {
+        "XML::Parser::Tiny"          : "lib/XML/Parser/Tiny.pm6",
+        "XML::Parser::Tiny::Grammar" : "lib/XML/Parser/Tiny/Grammar.pm6",
+        "XML::Parser::Tiny::Actions" : "lib/XML/Parser/Tiny/Actions.pm6"
+    },
     "depends"     : [ ],
     "source-type" : "git",
     "source-url"  : "git://github.com/afiskon/p6-xml-parser-tiny.git"

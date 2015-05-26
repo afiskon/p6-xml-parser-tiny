@@ -2,7 +2,7 @@
 
 use v6;
 
-grammar XML::Parser::Tiny::Grammar;
+unit grammar XML::Parser::Tiny::Grammar;
 
 token TOP {
     ^ <head> <.sp> <body_item> <.sp> $

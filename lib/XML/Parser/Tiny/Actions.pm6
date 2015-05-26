@@ -2,7 +2,7 @@
 
 use v6;
 
-class XML::Parser::Tiny::Actions;
+unit class XML::Parser::Tiny::Actions;
 
 method TOP ($/) {
   make {

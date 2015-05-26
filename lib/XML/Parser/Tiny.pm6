@@ -4,7 +4,7 @@ use v6;
 use XML::Parser::Tiny::Grammar;
 use XML::Parser::Tiny::Actions;
 
-class XML::Parser::Tiny;
+unit class XML::Parser::Tiny;
 
 has $!grammar = XML::Parser::Tiny::Grammar;
 has $!actions = XML::Parser::Tiny::Actions.new;

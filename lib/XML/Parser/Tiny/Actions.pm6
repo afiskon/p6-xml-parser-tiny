@@ -38,7 +38,7 @@ method long ($/) {
   make {
     name => $/.list[0].hash{'name'}.ast,
     attr => $<attribute>>>.ast.flat.hash,
-    data => $<inner>>>.ast.flat.grep({$_.defined}).unshift([]).reduce(
+    data => $<inner> eq [] ?? $<inner> !! $<inner>>>.ast.flat.grep({$_.defined}).unshift([]).reduce(
       sub (@lst, $curr) {
         if $curr.isa('Str') && @lst && @lst[@lst.end].isa('Str') {
           @lst[@lst.end] ~= $curr

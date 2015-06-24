@@ -7,7 +7,7 @@ use XML::Parser::Tiny;
 
 my $parser = XML::Parser::Tiny.new;
 
-dies_ok( { $parser.parse('trash') } );
+dies-ok( { $parser.parse('trash') } );
 ok( $parser.parse('<doc />') eqv {head=>[],body =>{name =>'doc',attr =>{},data=>[]}} );
 
 done;

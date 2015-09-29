@@ -9,11 +9,16 @@ unit class XML::Parser::Tiny;
 has $!grammar = XML::Parser::Tiny::Grammar;
 has $!actions = XML::Parser::Tiny::Actions.new;
 
+class X::XML::Parser::Tiny::Invalid is Exception {
+    has $.source;
+    method message { "Input ($.source.chars() characters) is not a valid XML string" }
+}
+
 method parse (XML::Parser::Tiny:D: Str $xml) {
     if my $m = $!grammar.parse($xml, :$!actions) {
         return $m.ast;
     } else {
-        die 'Invalid XML';
+        X::XML::Parser::Tiny::Invalid.new(source => $xml).throw;
     }
 }
 

@@ -117,8 +117,8 @@ my $grammar = XML::Parser::Tiny::Grammar;
 my $actions = XML::Parser::Tiny::Actions.new;
 for %tests.kv -> $in, $out {
   my $m = $grammar.parse($in, :$actions);
-  ok($m.ast eqv $out); 
+  is($m.ast, $out, $in); 
 }
 
-done;
+done-testing;
 

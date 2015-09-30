@@ -38,16 +38,17 @@ method long ($/) {
   make {
     name => $/.list[0].hash{'name'}.ast,
     attr => $<attribute>>>.ast.flat.hash,
-    data => $<inner> eq [] ?? $<inner> !! $<inner>>>.ast.flat.grep({$_.defined}).unshift([]).reduce(
-      sub (@lst, $curr) {
-        if $curr.isa('Str') && @lst && @lst[@lst.end].isa('Str') {
-          @lst[@lst.end] ~= $curr
+    data => $<inner> eq [] ?? $<inner> !! do {
+      my $result = [];
+      for $<inner>>>.ast.flat.grep({$_.defined}) {
+        if $_ ~~ Str && $result && $result[$result.end] ~~ Str {
+          $result[$result.end] ~= $_;
         } else {
-          @lst.push($curr)
+          $result.push($_);
         }
-        return @lst;
       }
-    ),
+      $result;
+    },
   };
 }
 

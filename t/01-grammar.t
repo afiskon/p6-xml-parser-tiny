@@ -231,4 +231,4 @@ for %tests.kv -> $key, $val {
   ok($grammar.parse($key).Bool == $val);
 }
 
-done;
+done-testing;

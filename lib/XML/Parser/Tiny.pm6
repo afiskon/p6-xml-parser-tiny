@@ -9,7 +9,7 @@ unit class XML::Parser::Tiny;
 has $!grammar = XML::Parser::Tiny::Grammar;
 has $!actions = XML::Parser::Tiny::Actions.new;
 
-method parse (Str $xml) {
+method parse (XML::Parser::Tiny:D: Str $xml) {
     if my $m = $!grammar.parse($xml, :$!actions) {
         return $m.ast;
     } else {

@@ -1,4 +1,5 @@
 {
+    "perl"        : "6.*",
     "name"        : "XML::Parser::Tiny",
     "version"     : "*",
     "description" : "A Perl 6 module for parsing XML documents",

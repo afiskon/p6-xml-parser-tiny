@@ -74,9 +74,9 @@ my $xmlmap_result = {
 
 my %tests = (
   "<doc />" => { head => [], body => { name => 'doc', attr => {}, data => [] } },
-  "<?xml ?><doc />" => { head => [ { name => 'xml', attr => {} } ], body => { name => 'doc', attr => {}, data => [] } },
-  "<?xml aaa='bbb' ?><doc />" => { head => [ { name => 'xml', attr => { aaa => 'bbb'} } ], body => { name => 'doc', attr => {}, data => [] } },
-  "<?xml ccc=\"ddd\" aaa='bbb' ?><doc />" => { head => [ { name => 'xml', attr => { aaa => 'bbb', ccc => 'ddd'} } ], body => { name => 'doc', attr => {}, data => [] } },
+  "<?xml ?><doc />" => { head => [ { name => 'xml', attr => {} }, ], body => { name => 'doc', attr => {}, data => [] } },
+  "<?xml aaa='bbb' ?><doc />" => { head => [ { name => 'xml', attr => { aaa => 'bbb'} }, ], body => { name => 'doc', attr => {}, data => [] } },
+  "<?xml ccc=\"ddd\" aaa='bbb' ?><doc />" => { head => [ { name => 'xml', attr => { aaa => 'bbb', ccc => 'ddd'} } ,], body => { name => 'doc', attr => {}, data => [] } },
   "<?aaa ?><?bbb ?>   <doc />" => { head => [ { name => 'aaa', attr => {} }, { name => 'bbb', attr => {}} ], body => { name => 'doc', attr => {}, data => [] } },
   "<?aaa ?>   <?bbb ?><doc />" => { head => [ { name => 'aaa', attr => {} }, { name => 'bbb', attr => {}} ], body => { name => 'doc', attr => {}, data => [] } },
   "<?aaa x='1' ?><?bbb y='2' ?><doc />" => {head=>[{name=>'aaa',attr=>{x=>'1'}},{name=>'bbb',attr=>{y=>'2'}}],body=>{name=>'doc',attr=>{},data=>[]}},
@@ -105,10 +105,10 @@ my %tests = (
   "<doc x=\"1\" y='2'>bebebe</doc>" => { head => [], body => { name => 'doc', attr => {x=>'1', y=>'2'}, data => ['bebebe'] } },
   "<doc><![CDATA[<html>&amp;]]></doc>" => { head => [], body => { name => 'doc', attr => {}, data => ['<html>&amp;'] } },
   "<doc>aaa<!-- --><![CDATA[</doc>]]>ccc</doc>" => { head => [], body => { name => 'doc', attr => {}, data => ['aaa</doc>ccc'] } },
-  "<html><doc /></html>" => { head => [], body => { name => 'html', attr => {}, data => [{ name => 'doc', attr => {}, data => []}] } },
-  "<html><doc></doc></html>" => { head => [], body => { name => 'html', attr => {}, data => [{ name => 'doc', attr => {}, data => []}] } },
-  "<html x='1'><doc y='2'></doc></html>" => {head=>[],body=>{name=>'html',attr=>{x=>'1'},data=>[{name=>'doc',attr=>{y=>'2'},data=>[]}]}},
-  "<html x='1'><!-- --><doc y='2'><!-- --></doc><!-- --></html>" => {head=>[],body=>{name=>'html',attr=>{x=>'1'},data=>[{name=>'doc',attr=>{y=>'2'},data=>[]}]}},
+  "<html><doc /></html>" => { head => [], body => { name => 'html', attr => {}, data => [{ name => 'doc', attr => {}, data => []},] } },
+  "<html><doc></doc></html>" => { head => [], body => { name => 'html', attr => {}, data => [{ name => 'doc', attr => {}, data => []},] } },
+  "<html x='1'><doc y='2'></doc></html>" => {head=>[],body=>{name=>'html',attr=>{x=>'1'},data=>[{name=>'doc',attr=>{y=>'2'},data=>[]},]}},
+  "<html x='1'><!-- --><doc y='2'><!-- --></doc><!-- --></html>" => {head=>[],body=>{name=>'html',attr=>{x=>'1'},data=>[{name=>'doc',attr=>{y=>'2'},data=>[]},]}},
   "<html x='1'>aaa<doc y='2'>bbb</doc><![CDATA[ccc]]></html>" => {head=>[],body=>{name=>'html',attr=>{x=>'1'},data=>['aaa',{name=>'doc',attr=>{y=>'2'},data=>['bbb']},'ccc']}},
   $xmlmap => $xmlmap_result,
 );
